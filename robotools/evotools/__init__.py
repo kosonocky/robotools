@@ -388,14 +388,17 @@ class Worklist(list):
             raise ValueError("scheme must be either 1, 2, 3 or 4")
         self.append(f"W{scheme};")
         return
+
     def decontaminate(self) -> None:
         """Decontamination wash consists of a decontamination wash followed by a normal wash."""
         self.append("WD;")
         return
+
     def flush(self) -> None:
         """Discards the contents of the tips WITHOUT WASHING or DROPPING of tips."""
         self.append("F;")
         return
+
     def commit(self) -> None:
         """Inserts a 'break' that forces the execution of aspirate/dispense operations at this point.
 
